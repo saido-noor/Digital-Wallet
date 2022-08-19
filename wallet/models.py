@@ -4,15 +4,17 @@ from django.db import models
 # from sqlalchemy import BigInteger, null, true
 
 class Customer(models.Model):
-    first_name= models.CharField(max_length=20)
+    first_name= models.CharField(max_length=20 )
     last_name= models.CharField(max_length=20)
-    Address=models.TextField()
+    address=models.TextField()
     email= models.EmailField()
     phone_number= models.CharField(max_length=15)
     gender= models.CharField(max_length=10)
     nationality=models.CharField(null=True,max_length=24)
     # profile_picture=models.ImageField(null=True,blank=True,upload_to="images/")
     age= models.PositiveBigIntegerField()
+
+
 
 
 
@@ -43,7 +45,7 @@ class Wallet(models.Model):
 
 class Transaction(models.Model):
     transaction_code = models.IntegerField()
-    Wallet = models.ForeignKey(on_delete=models.CASCADE,to=Wallet)
+    wallet = models.ForeignKey(on_delete=models.CASCADE,to=Wallet)
     transaction_amount = models.BigIntegerField()
     transaction_type =  models.CharField(max_length=20)
     date_time = models.DateTimeField(default=datetime.now)
