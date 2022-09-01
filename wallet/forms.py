@@ -1,6 +1,6 @@
 
 from django import forms
-from .models import Account, Card, Customer, Loan, Notification, Receipt, Reward, ThirdParty
+from .models import Account, Card, Customer, Loan, Notification, Receipt, Reward, ThirdParty, Transaction, Wallet
 
 from django.forms import ModelForm
 
@@ -15,17 +15,17 @@ class AccountRegistrationsForm(ModelForm):
         fields = "__all__"
 
     
-# class WalletRegistrationsForm(ModelForm):
-#     class Meta:
-#         model = Wallet
-#         fields = "__all__"
+class WalletRegistrationsForm(ModelForm):
+    class Meta:
+        model = Wallet
+        fields = "__all__"
 
 
 
-# class TransactionRegistrationsForm(ModelForm):
-#     class Meta:
-#         model = Transaction
-#         fields = "__all__"
+class TransactionRegistrationsForm(ModelForm):
+    class Meta:
+        model = Transaction
+        fields = "__all__"
 
 
 class CardRegistrationsForm(ModelForm):

@@ -104,9 +104,9 @@ class Loan(models.Model):
 
 
 class Reward(models.Model):
-    receipt = models.ForeignKey(on_delete=models.CASCADE,to=Receipt)
-    transacation = models.ForeignKey(on_delete=models.CASCADE,to=Transaction)
+    receipt = models.ForeignKey(Receipt,on_delete=models.CASCADE)
+    transacation = models.ForeignKey(Transaction,on_delete=models.CASCADE)
     customer_id = models.IntegerField()
-    date_reward = models.DateTimeField(default=datetime.now)
+    date_reward = models.DateTimeField()
 
  
