@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import AccountRegistrationsForm, CardRegistrationsForm, CustomerRegistrationsForm, LoanRegistrationsForm, NotificationRegistrationsForm, ReceiptRegistrationsForm, RewardRegistrationsForm, ThirdPartyRegistrationsForm
+from .forms import AccountRegistrationsForm, CardRegistrationsForm, CustomerRegistrationsForm, LoanRegistrationsForm, NotificationRegistrationsForm, ReceiptRegistrationsForm, RewardRegistrationsForm, ThirdPartyRegistrationsForm, TransactionRegistrationsForm, WalletRegistrationsForm
 
 # Create your views here.
 
@@ -13,10 +13,17 @@ def register_account(request):
     return render(request,"wallet/register_account.html",
     {"form":form})
 
-# def register_wallet(request):
-#     form = WalletRegistrationsForm()
-#     return render(request,"wallet/register_wallet.html",
-#     {"form": form})
+
+
+def register_wallet(request):
+    form = WalletRegistrationsForm()
+    return render(request,"wallet/register_wallet.html",
+    {"form": form})
+
+def register_transaction(request):
+    form = TransactionRegistrationsForm()
+    return render(request,"wallet/register_transaction.html",
+    {"form":form})
 
 
 def register_card(request):
