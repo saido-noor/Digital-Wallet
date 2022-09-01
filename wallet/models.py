@@ -35,10 +35,10 @@ class Account(models.Model):
 
 class Wallet(models.Model):
     balance = models.BigIntegerField()
-    customer = models.ForeignKey(on_delete=models.CASCADE,to=Customer)
+    customer = models.ForeignKey(Customer,on_delete=models.CASCADE)
     currency = models.CharField(max_length=20)
     amount = models.BigIntegerField()
-    account = models.ForeignKey(on_delete=models.CASCADE,to=Account)
+    account = models.ForeignKey(Account,on_delete=models.CASCADE)
     account_pin = models.PositiveIntegerField()
 
 
