@@ -1,5 +1,5 @@
 from django.urls import path
-
+from . import views
 from .views import register_card, register_customer,register_account, register_loan, register_notification, register_receipt, register_reward, register_thirdparty, register_transaction, register_wallet
 
 urlpatterns = [
@@ -13,6 +13,6 @@ urlpatterns = [
     path("notification/",register_notification,name="notification"),
     path("loan/",register_loan,name="loan"),
     path("reward/",register_reward,name="reward"),
-   
+    path("customers/", views.list_customers,name="customers_list"),
 
     ]

@@ -21,7 +21,6 @@ class WalletRegistrationsForm(ModelForm):
         fields = "__all__"
 
 
-
 class TransactionRegistrationsForm(ModelForm):
     class Meta:
         model = Transaction

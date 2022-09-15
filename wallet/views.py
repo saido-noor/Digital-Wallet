@@ -1,17 +1,33 @@
 from django.shortcuts import render
 from .forms import AccountRegistrationsForm, CardRegistrationsForm, CustomerRegistrationsForm, LoanRegistrationsForm, NotificationRegistrationsForm, ReceiptRegistrationsForm, RewardRegistrationsForm, ThirdPartyRegistrationsForm, TransactionRegistrationsForm, WalletRegistrationsForm
+from .models import Customer
+from . import forms
 
 # Create your views here.
 
 def register_customer(request):
-    form = CustomerRegistrationsForm()
+    if request.method == "Post":
+        form = CustomerRegistrationsForm(request.Post)
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = CustomerRegistrationsForm()
+    
     return render(request,"wallet/register_customer.html",
     {"form":form})
+
+
+    # form = CustomerRegistrationsForm()
+    # return render(request,"wallet/register_customer.html",
+    # {"form":form})
+    
 
 def register_account(request):
     form = AccountRegistrationsForm()
     return render(request,"wallet/register_account.html",
     {"form":form})
+
 
 
 
@@ -59,3 +75,8 @@ def register_reward(request):
     form = RewardRegistrationsForm()
     return render(request,"wallet/register_reward.html",
     {"form":form})
+
+def list_customers(request):
+    customers = Customer.objects.all()
+    return render(request, "wallet/customers_list.html",
+    {"customers": customers})
